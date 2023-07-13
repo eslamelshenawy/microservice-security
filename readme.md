@@ -4,7 +4,7 @@
 ```bash
 git clone git@github.com:AndriyKalashnykov/spring-microservices-k8s.git
 ```
-## minikube start 
+## minikube start
 ```bash
 minikube start
 ```
@@ -84,6 +84,34 @@ http://127.0.0.1:8080/swagger-ui.html
 ###  user
 http://127.0.0.1:8080/user
 
-
-
+```bash
+dos2unix start-cluster.sh 
+```
+```bash
+dos2unix install-db.sh
+```
+```bash
+dos2unix build-app.sh
+```
+```bash
+dos2unix set-env.sh
+```
+```bash
+dos2unix start-cluster.sh
+```
+```bash
+dos2unix delete-app.sh
+```
+```bash
+dos2unix delete-all.sh
+```
+```bash
+kubectl get pods --all-namespaces
+```
+```bash to collect the logs from the pod
+kubectl logs <pod_name> -n <namespace_name>
+```
+```bash output the logs to a file
+kubectl logs <pod_name> -n <namespace_name> > broken-pod.log
+```
 
