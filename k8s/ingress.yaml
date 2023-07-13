@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gateway-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  defaultBackend:
+    service:
+      name: gateway
+      port:
+        number: 8080
+  rules:
+  - host: microservices-cluster.info
+    http:
+      paths:
+      - path: /organization
+        backend:
+           service:
+            name: organization
+            port:
+              number: 8080
+        pathType: Prefix
+      - path: /user
+        backend:
+           service:
+            name: user
+            port:
+              number: 8080
+        pathType: Prefix
+      - path: /gateway
+        backend:
+          service:
+            name: gateway
+            port:
+              number: 8080
+        pathType: ImplementationSpecific
