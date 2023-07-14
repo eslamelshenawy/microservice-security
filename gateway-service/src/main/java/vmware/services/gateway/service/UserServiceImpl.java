@@ -17,6 +17,7 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public UserDto createUser(SignupRequest signupRequest) throws Exception {
         User user = new User();
+        user.setId("test1111");
         user.setEmail(signupRequest.getEmail());
         user.setName(signupRequest.getName());
         user.setPassword(new BCryptPasswordEncoder().encode(signupRequest.getPassword()));
